@@ -1,0 +1,19 @@
+--- dwm.c
++++ dwm.c
+@@ -194,6 +193,8 @@ static void resizemouse(const Arg *arg);
+ static void restack(Monitor *m);
+ static void run(void);
+ static void scan(void);
++static void schemeCycle(const Arg*);
++static void schemeToggle(const Arg*);
+ static int sendevent(Client *c, Atom proto);
+ static void sendmon(Client *c, Monitor *m);
+ static void setclientstate(Client *c, long state);
+@@ -263,6 +264,7 @@ static Atom wmatom[WMLast], netatom[NetLast];
+ static int running = 1;
+ static Cur *cursor[CurLast];
+ static Scm *scheme;
++static int SchemeNorm = 0, SchemeSel = 1;
+ static Display *dpy;
+ static Drw *drw;
+ static Monitor *mons, *selmon;
